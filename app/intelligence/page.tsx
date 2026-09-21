@@ -79,7 +79,7 @@ export default function IntelligencePage() {
       case "TOP SECRET":
         return "bg-red-500/20 text-red-500"
       case "SECRET":
-        return "bg-orange-500/20 text-orange-500"
+        return "bg-scout-lime/20 text-scout-lime"
       case "CONFIDENTIAL":
         return "bg-neutral-500/20 text-neutral-300"
       default:
@@ -92,7 +92,7 @@ export default function IntelligencePage() {
       case "critical":
         return "bg-red-500/20 text-red-500"
       case "high":
-        return "bg-orange-500/20 text-orange-500"
+        return "bg-scout-lime/20 text-scout-lime"
       case "medium":
         return "bg-neutral-500/20 text-neutral-300"
       case "low":
@@ -107,7 +107,7 @@ export default function IntelligencePage() {
       case "verified":
         return "bg-white/20 text-white"
       case "pending":
-        return "bg-orange-500/20 text-orange-500"
+        return "bg-scout-lime/20 text-scout-lime"
       case "active":
         return "bg-white/20 text-white"
       default:
@@ -131,8 +131,8 @@ export default function IntelligencePage() {
           <p className="text-sm text-neutral-400">Classified reports and threat analysis</p>
         </div>
         <div className="flex gap-2">
-          <Button className="bg-orange-500 hover:bg-orange-600 text-white">New Report</Button>
-          <Button className="bg-orange-500 hover:bg-orange-600 text-white">
+          <Button className="bg-scout-lime hover:bg-scout-lime-deep text-scout-ink">New Report</Button>
+          <Button className="bg-scout-lime hover:bg-scout-lime-deep text-scout-ink">
             <Filter className="w-4 h-4 mr-2" />
             Filter
           </Button>
@@ -202,7 +202,7 @@ export default function IntelligencePage() {
             {filteredReports.map((report) => (
               <div
                 key={report.id}
-                className="border border-neutral-700 rounded p-4 hover:border-orange-500/50 transition-colors cursor-pointer"
+                className="border border-neutral-700 rounded p-4 hover:border-scout-lime/50 transition-colors cursor-pointer"
                 onClick={() => setSelectedReport(report)}
               >
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
@@ -336,7 +336,7 @@ export default function IntelligencePage() {
                             selectedReport.threat === "critical"
                               ? "bg-red-500 w-full"
                               : selectedReport.threat === "high"
-                                ? "bg-orange-500 w-3/4"
+                                ? "bg-scout-lime w-3/4"
                                 : selectedReport.threat === "medium"
                                   ? "bg-neutral-400 w-1/2"
                                   : "bg-white w-1/4"
@@ -354,7 +354,7 @@ export default function IntelligencePage() {
               </div>
 
               <div className="flex gap-2 pt-4 border-t border-neutral-700">
-                <Button className="bg-orange-500 hover:bg-orange-600 text-white">
+                <Button className="bg-scout-lime hover:bg-scout-lime-deep text-scout-ink">
                   <Eye className="w-4 h-4 mr-2" />
                   View Full Report
                 </Button>

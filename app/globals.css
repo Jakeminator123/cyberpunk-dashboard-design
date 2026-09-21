@@ -6,6 +6,56 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  /* 3D helpers */
+  .perspective-1400 {
+    perspective: 1400px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  /* Faint engineering grid like scoutgaminggroup.com's hero */
+  .scout-grid {
+    background-image:
+      linear-gradient(to right, rgba(242, 241, 237, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(242, 241, 237, 0.045) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Stagger helper: set --i on each child */
+  .stagger > * {
+    animation-delay: calc(var(--i, 0) * 70ms);
+  }
+
+  /* Tilted "monitor" that flattens on hover/focus/when attached */
+  .tilt-card {
+    transform: rotateX(var(--tilt-x, 5deg)) rotateY(var(--tilt-y, -4deg));
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.7s ease;
+  }
+  .tilt-card:hover,
+  .tilt-card:focus-within,
+  .tilt-card[data-flat="true"] {
+    transform: rotateX(0) rotateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-reveal-up,
+  .animate-reveal-3d,
+  .animate-slash-swing,
+  .animate-scan,
+  .animate-glow-pulse,
+  .animate-grid-drift {
+    animation: none !important;
+  }
+  .tilt-card {
+    transform: none;
+    transition: none;
+  }
 }
 
 @layer base {
@@ -46,26 +96,27 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+  /* Scout Gaming palette: ink #0A0B0D, off #F2F1ED, lime #D6FF3A, steel #5A6470, steel2 #1F252E */
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
+    --background: 220 13% 4.5%;
+    --foreground: 48 16% 94%;
+    --card: 216 19% 9%;
+    --card-foreground: 48 16% 94%;
+    --popover: 216 19% 9%;
+    --popover-foreground: 48 16% 94%;
+    --primary: 72 100% 61%;
+    --primary-foreground: 220 13% 4.5%;
+    --secondary: 216 19% 15%;
+    --secondary-foreground: 48 16% 94%;
+    --muted: 216 19% 15%;
+    --muted-foreground: 213 11% 55%;
+    --accent: 216 19% 15%;
+    --accent-foreground: 72 100% 61%;
+    --destructive: 9 70% 32%;
+    --destructive-foreground: 48 16% 94%;
+    --border: 48 16% 94% / 0.14;
+    --input: 216 19% 18%;
+    --ring: 72 100% 61%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;

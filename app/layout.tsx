@@ -1,21 +1,24 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Geist_Mono as GeistMono } from "next/font/google"
+import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google"
 
 import "./globals.css"
 
-const geistMono = GeistMono({ subsets: ["latin"] })
+// Same font stack as scoutgaminggroup.com: Space Grotesk (display), Inter (body), JetBrains Mono (labels/code)
+const display = Space_Grotesk({ subsets: ["latin"], variable: "--font-display", weight: ["500", "600", "700"] })
+const body = Inter({ subsets: ["latin"], variable: "--font-body" })
+const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono", weight: ["400", "500"] })
 
 export const metadata: Metadata = {
-  title: "Croupier Operations · Local Lab Bridge",
-  description: "En lokal operationsdashboard som monterar Croupier Studio direkt från labbservern.",
+  title: "scout/gaming · Croupier Ops",
+  description: "Lokal operationsdashboard i Scout Gaming-profil som monterar Croupier Studio från labbservern.",
   robots: { index: false, follow: false },
   generator: "v0.app",
 }
 
 export const viewport: Viewport = {
   colorScheme: "dark",
-  themeColor: "#0a0a0a",
+  themeColor: "#0A0B0D",
   width: "device-width",
   initialScale: 1,
   userScalable: true,
@@ -27,8 +30,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="sv">
-      <body className={`${geistMono.className} min-h-screen bg-neutral-950 text-white antialiased`}>{children}</body>
+    <html lang="sv" className={`dark ${display.variable} ${body.variable} ${mono.variable}`}>
+      <body className="min-h-screen bg-scout-ink font-sans text-scout-off antialiased">{children}</body>
     </html>
   )
 }
